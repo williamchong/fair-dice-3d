@@ -14,14 +14,14 @@ public class wall : MonoBehaviour
     void Update()
     {
 
-        float mouseRatioX = Input.mousePosition.x * 25/ Screen.width;
-        float mouseRatioY = Input.mousePosition.y * 25/ Screen.height;
+        float mouseRatioX = Input.mousePosition.x * 0.2f/ Screen.width;
+        float mouseRatioY = Input.mousePosition.y * 0.2f / Screen.height;
 
         //now create a new vector3
 
-        var mousePos = new Vector3(mouseRatioX - 0.5f, 0f, mouseRatioY - 0.5f);
+        var mousePos = new Vector3(mouseRatioX - 0.05f, 0f, mouseRatioY - 0.05f);
 
-        this.transform.position = mousePos;
+        this.transform.position = Vector3.MoveTowards(this.transform.position, mousePos, 0.08f);
 
     }
 }
